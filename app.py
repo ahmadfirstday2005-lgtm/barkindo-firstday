@@ -29,7 +29,7 @@ import os
 import re
 import secrets
 import sqlite3
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -38,7 +38,8 @@ STATIC_DIR = os.path.join(BASE_DIR, "static")
 DB_PATH = os.environ.get("DB_PATH", os.path.join(BASE_DIR, "registration.db"))
 
 # Defaults safe for a local learning project; overridable for deployment.
-HOST = os.environ.get("HOST", "localhost").strip()
+# On Render/HOSTING, bind to 0.0.0.0 and use the PORT the platform provides.
+HOST = os.environ.get("HOST", "0.0.0.0").strip()
 PORT = int(os.environ.get("PORT", "8000"))
 COOKIE_FLAGS = "Path=/; HttpOnly; SameSite=Lax"
 if os.environ.get("COOKIE_SECURE") == "1":
@@ -337,7 +338,9 @@ class RegistrationHandler(BaseHTTPRequestHandler):
 
 def main():
     init_db()
-    server = HTTPServer((HOST, PORT), RegistrationHandler)
+    # ThreadingHTTPServer handles several browsers' requests at once,
+    # which matters on a real host (HTML, CSS and JS load in parallel).
+    server = ThreadingHTTPServer((HOST, PORT), RegistrationHandler)
     print(f"Server running at http://{HOST}:{PORT}")
     print("Press Ctrl+C to stop.")
     server.serve_forever()
