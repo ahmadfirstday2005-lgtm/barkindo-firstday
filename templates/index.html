@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barkindo FirstDay</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="registration-container">
+        <h1>Barkindo FirstDay</h1>
+        <p class="subtitle">Create your account</p>
+
+        <div id="registerErrors" class="error-box"></div>
+
+        <form id="registrationForm" autocomplete="off" novalidate>
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g. Jane Doe">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="1" max="120" placeholder="e.g. 20">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" placeholder="At least 8 characters">
+                    <button type="button" class="eye-btn" data-toggle="password" aria-label="Show password">👁️</button>
+                </div>
+                <div id="passwordStrength" class="strength-meter"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password">
+                    <button type="button" class="eye-btn" data-toggle="confirmPassword" aria-label="Show password">👁️</button>
+                </div>
+            </div>
+
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+
+        <p class="switch-text">Already have an account? <a href="/login">Log in</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Barkindo FirstDay</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome, {{full_name}}!</h1>
+        <p class="subtitle">This is your personal dashboard.</p>
+
+        <div class="profile-card">
+            <p><strong>Full Name:</strong> {{full_name}}</p>
+            <p><strong>Email:</strong> {{email}}</p>
+            <p><strong>Age:</strong> {{age}}</p>
+        </div>
+
+        <a href="/logout" class="register-btn link-btn logout-btn">Log Out</a>
+    </div>
+</body>
+</html>

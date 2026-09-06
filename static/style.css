@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+a {
+    color: #667eea;
+}
+
+/* ----- shared card ----- */
+
+.registration-container,
+.dashboard-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 420px;
+}
+
+h1 {
+    color: #333333;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #888888;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.switch-text {
+    text-align: center;
+    color: #888888;
+    font-size: 14px;
+    margin-top: 18px;
+}
+
+/* ----- form fields ----- */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #555555;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* Password field with the eye button inside it. */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 45px;
+}
+
+.eye-btn {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+}
+
+/* ----- password strength ----- */
+
+.strength-meter {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 18px;
+}
+
+.strength-meter.weak {
+    color: #e53e3e;
+}
+
+.strength-meter.medium {
+    color: #dd6b20;
+}
+
+.strength-meter.strong {
+    color: #38a169;
+}
+
+/* ----- error box ----- */
+
+.error-box {
+    margin-bottom: 18px;
+    padding: 10px 14px;
+    background: #fff5f5;
+    border: 1px solid #fc8181;
+    border-radius: 8px;
+    display: none;
+}
+
+.error-box:not(:empty) {
+    display: block;
+}
+
+.error-item:not(:last-child) {
+    margin-bottom: 4px;
+}
+
+.error-item {
+    color: #c53030;
+    font-size: 14px;
+}
+
+/* ----- buttons ----- */
+
+.register-btn {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    background: #667eea;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.register-btn:hover {
+    background: #5a67d8;
+}
+
+/* ----- success + dashboard ----- */
+
+.success-card {
+    text-align: center;
+}
+
+.link-btn {
+    margin-top: 18px;
+}
+
+.profile-card {
+    background: #f7f7fb;
+    border: 1px solid #e2e2ea;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+.profile-card p {
+    color: #444444;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.logout-btn {
+    background: #e53e3e;
+    margin-top: 0;
+}
+
+.logout-btn:hover {
+    background: #c53030;
+}
+
+/* ----- responsive ----- */
+
+@media (max-width: 480px) {
+    .registration-container,
+    .dashboard-container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
